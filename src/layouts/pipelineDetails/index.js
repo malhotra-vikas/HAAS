@@ -19,6 +19,7 @@ import Grid from "@mui/material/Grid";
 
 // Material Dashboard 2 React components
 import MDBox from "components/MDBox";
+import MDTypography from "components/MDTypography";
 
 // Material Dashboard 2 React example components
 import DashboardLayout from "examples/LayoutContainers/DashboardLayout";
@@ -36,14 +37,43 @@ import reportsLineChartData from "layouts/dashboard/data/reportsLineChartData";
 import Projects from "layouts/dashboard/components/Projects";
 // import OrdersOverview from "layouts/dashboard/components/OrdersOverview";
 
-function Dashboard() {
+function PipelineDetails() {
   const { sales } = reportsLineChartData;
 
   return (
     <DashboardLayout>
       <DashboardNavbar />
-      <MDBox py={3}>
+      <MDBox
+        mx={2}
+        mt={3}
+        py={1}
+        px={1}
+        variant="gradient"
+        bgColor="info"
+        borderRadius="lg"
+        coloredShadow="info"
+      >
+        <MDTypography variant="h6" color="white">
+          Hiring Pipeline for &quot;Core Platform Backend Enginner&quot;
+        </MDTypography>
+      </MDBox>
+      <MDBox py={5}>
         <Grid container spacing={3}>
+          <Grid item xs={12} md={6} lg={3}>
+            <MDBox mb={1.5}>
+              <ComplexStatisticsCard
+                color="dark"
+                icon="weekend"
+                title="Resume Shortlisted"
+                count={75}
+                percentage={{
+                  color: "fail",
+                  amount: "45%",
+                  label: "Interviews Scheduled",
+                }}
+              />
+            </MDBox>
+          </Grid>
           <Grid item xs={12} md={6} lg={3}>
             <MDBox mb={1.5}>
               <ComplexStatisticsCard
@@ -147,4 +177,4 @@ function Dashboard() {
   );
 }
 
-export default Dashboard;
+export default PipelineDetails;
